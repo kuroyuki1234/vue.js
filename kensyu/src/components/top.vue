@@ -7,6 +7,8 @@ const registration = () => {
      window.location.href = '/registration';
     // window.location.href = 'https://chatgpt.com/';
 }
+
+
 </script>
 
 <template>
