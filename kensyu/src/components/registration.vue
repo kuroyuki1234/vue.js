@@ -87,6 +87,7 @@ const completion = () => {
     </div>
 </template>
 
+
 <style scoped>
 .registration {
     max-width: Auto;
