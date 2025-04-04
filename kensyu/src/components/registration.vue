@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import Completion from './completion.vue';
 
 
+
 const form = ref({
     sei: "",
     mei: "",
