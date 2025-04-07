@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import Registration from './registration.vue';
+import Registration from './Registration.vue';
 import { useRouter } from 'vue-router'
 
 const registration = () => {

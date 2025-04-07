@@ -1,7 +1,6 @@
 <script setup>
 import { ref,reactive } from 'vue'
 import { useRouter } from 'vue-router'
-import Completion from './completion.vue';
 import { validationForm } from './Validation.js';
 
 
@@ -58,7 +57,7 @@ const validateForm = () => {
     // Add your form submission logic here
 };
 
-const completion = () => {
+const Completion = () => {
     const hasErrors = validateForm();
     if (!isValid) {
         console.log("送信成功", form);
@@ -123,7 +122,7 @@ const handleEnter = () => {
             <div class="form-group">
                 
             </div>
-            <button type="submit" @click="completion">登録</button>
+            <button type="submit" @click="Completion">登録</button>
         </form>
     </div>
 </template>
