@@ -1,21 +1,11 @@
 <script setup>
-//import HelloWorld from './components/HelloWorld.vue'
 import top from './components/Top.vue'
-// import registration from './components/registration.vue'
-// import completion from './components/completion.vue'
 import { ref } from 'vue'
 </script>
 
 <template>
   <div>
-    <!-- <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a> -->
   </div>
-  <!-- <HelloWorld msg="Vite + Vue" /> -->
   <router-view />
 
 </template>

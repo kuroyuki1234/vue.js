@@ -1,8 +1,7 @@
 <script setup>
-import { ref } from 'vue'
+import { ref,reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import Completion from './Completion.vue';
-import { reactive } from 'vue';
 import { validationForm } from './Validation.js';
 
 
