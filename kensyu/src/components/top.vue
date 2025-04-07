@@ -1,11 +1,14 @@
 <script setup>
 import { ref } from 'vue'
-import Registration from './registration.vue';
+import Registration from './Registration.vue';
 import { useRouter } from 'vue-router'
 
+const router = useRouter();
+
 const registration = () => {
-     window.location.href = '/registration';
+     //window.location.href = '/registration';
     // window.location.href = 'https://chatgpt.com/';
+    router.push({ name: 'Registration' });
 }
 
 

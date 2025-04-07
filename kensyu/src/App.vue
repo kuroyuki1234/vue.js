@@ -1,8 +1,8 @@
 <script setup>
 //import HelloWorld from './components/HelloWorld.vue'
-import top from './components/top.vue'
-import registration from './components/registration.vue'
-import completion from './components/completion.vue'
+import top from './components/Top.vue'
+// import registration from './components/registration.vue'
+// import completion from './components/completion.vue'
 import { ref } from 'vue'
 </script>
 
@@ -15,7 +15,7 @@ import { ref } from 'vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a> -->
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <!-- <HelloWorld msg="Vite + Vue" /> -->
   <router-view />
 
 </template>
