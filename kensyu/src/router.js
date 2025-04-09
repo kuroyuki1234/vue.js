@@ -1,24 +1,29 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import top from './components/top.vue'
-import registration from './components/registration.vue'
-import completion from './components/completion.vue';
-import './style.css';
+import Top from '@/components/Top.vue'
+import Registration from '@/components/Registration.vue'
+import Completion from '@/components/Completion.vue';
+import '@/style.css';
+import path from 'path';
 
 const routes = [
     {
-        path: '/top',
-        name: 'top',
-        component: top,
+        path: '/',
+        redirect: '/Top',
     },
     {
-        path: '/registration',
-        name: 'registration',
-        component: registration,
+        path: '/Top',
+        name: 'Top',
+        component: Top,
     },
     {
-        path: '/completion',
-        name: 'completion',
-        component: completion,
+        path: '/Registration',
+        name: 'Registration',
+        component: Registration,
+    },
+    {
+        path: '/Completion',
+        name: 'Completion',
+        component: Completion,
     },
 ];
 
