@@ -1,5 +1,5 @@
 <script setup>
-import { ref,reactive } from 'vue'
+import { ref,reactive, vModelRadio } from 'vue'
 import { useRouter } from 'vue-router'
 import Completion from './Completion.vue';
 import { validationForm } from './Validation.js';
@@ -19,9 +19,8 @@ const form = reactive ({
     postcode: "",
     address1: "",
     address2: "",
-    homeTel: "",
     tel: "",
-
+    telType: "",
 });
 
 // エンター機を押した際の処理を記載(対象の項目についても何をするのかを記載すること)
@@ -154,13 +153,19 @@ const completion = () => {
                 <p v-if="errors.address2" class="error"> {{ errors.address2 }} </p>
             </div>
             <div class="form-group">
-                <label for="number">電話番号(自宅)：</label>
-                <input type="tel" id="tel1" v-model="form.homeTel" required @blur="() => validateField('homeTel')" placeholder="0369086228"  />
-                <p v-if="errors.homeTel" class="error"> {{ errors.homeTel }} </p>
-            </div>
-            <div class="form-group">
-                <label for="number">電話番号(携帯)：</label>
-                <input type="tel" id="tel2" v-model="form.tel" required @blur="() => validateField('tel')" placeholder="08069086228" />
+                <label for="number">電話番号：</label>
+                <div class ="radio-form-group">
+                    <div class ="radio-option">
+                    <input type="radio" id="homeTel"  value="自宅" v-model="form.telType" />
+                    <label for="homeTel">：自宅</label>
+                    </div>
+                    <div class ="radio-option">
+                    <input type="radio" id="mobileTel"  value="携帯" v-model="form.telType" />
+                    <label for="mobileTel">：携帯</label>
+                    </div>
+                    <p v-if="errors.telType" class="error"> {{ errors.telType }} </p>
+                </div>
+                <input type="tel" id="tel" v-model="form.tel" required @blur="() => validateField('tel')" placeholder="08069086228" />
                 <p v-if="errors.tel" class="error"> {{ errors.tel }} </p>
             </div>
             <div class="form-group">
@@ -172,54 +177,95 @@ const completion = () => {
 </template>
 
 <style scoped>
-/* .registration {
-    max-width: Auto;
-    margin: 0 auto;
-    padding: 0 auto;
-    border: 1px solid #ccc; 
-    border-radius: 5px;
-} 
+.registration {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #333;
+}
+
 .form-group {
     margin-bottom: 20px;
     display: flex;
-    align-items: center;
-    gap: 30px;
-} */
-.error {
-    /* color: red;
-    font-size: 12px;
-    margin-top: 5px; */
-    padding: 10px;
-    background-color: #f44336; /* 赤色 */
-    color: white;
-    font-size: 15px;
-    border-radius: 3px;
-    margin-bottom: 10px;
-    position: relative;
+    flex-direction: column;
 }
 
-/* label {
-    display: inline-block;
-    width: 100px;
+label {
+    text-align: left;
     font-weight: bold;
     color: #333;
     margin-bottom: 5px;
-    white-space: nowrap;
 }
+
 input {
-    width: 100%;
     padding: 10px;
-    box-sizing: border-box;
-} */
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+.error {
+    background-color: #f44336;
+    color: white;
+    font-size: 13px;
+    padding: 8px 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.radio-form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+.radio-form-group label {
+    font-weight: normal;
+}
+.radio-option{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 button {
-    padding: 10px 15px;
+    width: 100%;
+    padding: 12px;
     background-color: #007bff;
     color: white;
+    font-weight: bold;
+    font-size: 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
 }
+
 button:hover {
     background-color: #0056b3;
 }
+
 </style>

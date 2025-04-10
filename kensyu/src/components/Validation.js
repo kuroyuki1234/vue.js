@@ -62,13 +62,10 @@ export function validationForm(form) {
     } else if (form.address1.length < 1) {
         errors.address1 = "住所は1文字以上で入力してください"
     }
-//電話番号(自宅)の確認
-    if (!form.homeTel) {
-        errors.homeTel = "自宅番号は必須です"
-    } else if (!form.number || !phoneRegex.test(form.number)) {
-    errors.number = "ハイフンなしの10〜11桁の電話番号を入力してください";
-    }
 //電話番号(携帯)の確認
+    if(!telTypy) {
+        errors.telTypy = "電話番号のタイプは必須です、入力してください"
+    }
     if (!form.tel) {
         errors.tel = "携帯番号は必須です"
     } else if (!form.number || !phoneRegex.test(form.number)) {
