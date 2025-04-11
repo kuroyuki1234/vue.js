@@ -63,7 +63,7 @@ export function validationForm(form) {
         errors.address1 = "住所は1文字以上で入力してください"
     }
 //電話番号(携帯)の確認
-    if(!telTypy) {
+    if(!form.telType) {
         errors.telTypy = "電話番号のタイプは必須です、入力してください"
     }
     if (!form.tel) {
